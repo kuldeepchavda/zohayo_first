@@ -9,9 +9,9 @@ router.post("/create", incomeDetailsController.submitDetails);
 router.get("/", incomeDetailsController.getAllDetails);
 
 // Update income details
-router.put("/:id", incomeDetailsController.updateDetails);
+router.put("update/:id", incomeDetailsController.updateDetails);
 
 // Delete income details
-router.delete("/:id", incomeDetailsController.deleteDetails);
+router.delete("delete/:id", incomeDetailsController.deleteDetails);
 
 module.exports = router;
