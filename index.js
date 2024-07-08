@@ -21,6 +21,7 @@ const familyDetails = require("./routes/familyDetails.routes")
 const incomeDetailsRoutes =require("./routes/incomeDetails.routes")
 const employmentDetailsRoutes = require("./routes/employmentDetails.routes")
 const permanentAddressRoutes = require("./routes/permanentAddress.routes")
+const loanDetailsRoutes = require("./routes/loanDetails.routes")
 mongoose.connect(process.env.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -42,6 +43,7 @@ app.use('/delete', deleteRoutes);
 app.use("/incomedetails", incomeDetailsRoutes);
 app.use("/employment-details", employmentDetailsRoutes);
 app.use("/permanent-address", permanentAddressRoutes);
+app.use("/loan", loanDetailsRoutes);
 app.use('*', (req, res) => {
   res.status(404).json({
     status: "404",
