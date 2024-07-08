@@ -17,7 +17,7 @@ const mongoose = require('mongoose');
 
 const deleteRoutes = require('./routes/delete.routes');
 const personalDetails = require("./routes/personalDetails.routes")
-
+const familyDetails = require("./routes/familyDetails.routes")
 
 mongoose.connect(process.env.mongoURI, {
   useNewUrlParser: true,
@@ -35,7 +35,9 @@ app.get('/', (req, res) => {
     'Tester backend is live', server:"Tester", url:"https://tester.neosaturn.in"});
   });
 app.use("/user",personalDetails)
+app.use("/familydetails", familyDetails);
 app.use('/delete', deleteRoutes);
+
 app.use('*', (req, res) => {
   res.status(404).json({
     status: "404",
@@ -51,5 +53,3 @@ process.on('unhandledRejection', (err, promise) => {
   console.log(`Logged Error: ${err.message}`);
   server.close(() => process.exit(1));
 });
-
-
