@@ -46,7 +46,6 @@ app.use('*', (req, res) => {
     error: "Route not found"
   });
 });
-
 const PORT = process.env.PORT;
 
 const server = app.listen(PORT, () => console.log(`Sever running on port ${PORT}`));
