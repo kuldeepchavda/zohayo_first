@@ -18,7 +18,7 @@ const mongoose = require('mongoose');
 const deleteRoutes = require('./routes/delete.routes');
 const personalDetails = require("./routes/personalDetails.routes")
 const familyDetails = require("./routes/familyDetails.routes")
-
+const incomeDetailsRoutes =require("./routes/incomeDetails.routes")
 mongoose.connect(process.env.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -37,6 +37,7 @@ app.get('/', (req, res) => {
 app.use("/user",personalDetails)
 app.use("/familydetails", familyDetails);
 app.use('/delete', deleteRoutes);
+app.use("/incomedetails", incomeDetailsRoutes);
 
 app.use('*', (req, res) => {
   res.status(404).json({
